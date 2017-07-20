@@ -13,8 +13,6 @@
 		9D32458C1DF5452500BFC1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D32458A1DF5452500BFC1A6 /* Main.storyboard */; };
 		9D32458E1DF5452500BFC1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D32458D1DF5452500BFC1A6 /* Assets.xcassets */; };
 		9D3245911DF5452500BFC1A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D32458F1DF5452500BFC1A6 /* LaunchScreen.storyboard */; };
-		9D32459C1DF5452500BFC1A6 /* ShareMorePicToWXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D32459B1DF5452500BFC1A6 /* ShareMorePicToWXTests.m */; };
-		9D3245A71DF5452500BFC1A6 /* ShareMorePicToWXUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3245A61DF5452500BFC1A6 /* ShareMorePicToWXUITests.m */; };
 		9D3245B61DF5453700BFC1A6 /* 2222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3245B41DF5453700BFC1A6 /* 2222.jpg */; };
 		9D3245B71DF5453700BFC1A6 /* 99687078.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3245B51DF5453700BFC1A6 /* 99687078.jpg */; };
 		9D3245B91DF545EB00BFC1A6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3245B81DF545EB00BFC1A6 /* share.png */; };
@@ -50,11 +48,7 @@
 		9D3245901DF5452500BFC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D3245921DF5452500BFC1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3245971DF5452500BFC1A6 /* ShareMorePicToWXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareMorePicToWXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D32459B1DF5452500BFC1A6 /* ShareMorePicToWXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareMorePicToWXTests.m; sourceTree = "<group>"; };
-		9D32459D1DF5452500BFC1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3245A21DF5452500BFC1A6 /* ShareMorePicToWXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareMorePicToWXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D3245A61DF5452500BFC1A6 /* ShareMorePicToWXUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareMorePicToWXUITests.m; sourceTree = "<group>"; };
-		9D3245A81DF5452500BFC1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3245B41DF5453700BFC1A6 /* 2222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2222.jpg; sourceTree = "<group>"; };
 		9D3245B51DF5453700BFC1A6 /* 99687078.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 99687078.jpg; sourceTree = "<group>"; };
 		9D3245B81DF545EB00BFC1A6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
@@ -92,8 +86,6 @@
 			children = (
 				FC1C7DA21ED81C8E00AF909A /* TSShareHelper */,
 				9D3245801DF5452500BFC1A6 /* ShareMorePicToWX */,
-				9D32459A1DF5452500BFC1A6 /* ShareMorePicToWXTests */,
-				9D3245A51DF5452500BFC1A6 /* ShareMorePicToWXUITests */,
 				9D32457F1DF5452500BFC1A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,24 +125,6 @@
 				9D3245821DF5452500BFC1A6 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9D32459A1DF5452500BFC1A6 /* ShareMorePicToWXTests */ = {
-			isa = PBXGroup;
-			children = (
-				9D32459B1DF5452500BFC1A6 /* ShareMorePicToWXTests.m */,
-				9D32459D1DF5452500BFC1A6 /* Info.plist */,
-			);
-			path = ShareMorePicToWXTests;
-			sourceTree = "<group>";
-		};
-		9D3245A51DF5452500BFC1A6 /* ShareMorePicToWXUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9D3245A61DF5452500BFC1A6 /* ShareMorePicToWXUITests.m */,
-				9D3245A81DF5452500BFC1A6 /* Info.plist */,
-			);
-			path = ShareMorePicToWXUITests;
 			sourceTree = "<group>";
 		};
 		FC1C7DA21ED81C8E00AF909A /* TSShareHelper */ = {
@@ -224,7 +198,7 @@
 		9D3245761DF5452500BFC1A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = ZFJ;
 				TargetAttributes = {
 					9D32457D1DF5452500BFC1A6 = {
@@ -312,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D32459C1DF5452500BFC1A6 /* ShareMorePicToWXTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D3245A71DF5452500BFC1A6 /* ShareMorePicToWXUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +349,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -424,6 +397,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -19,7 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
@@ -28,25 +27,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)weChatAction:(id)sender
-{
+#pragma mark - Action
+- (IBAction)weChatAction:(id)sender{
     UIImage *img = [UIImage imageNamed:@"99687078.jpg"];
     UIImage *img1 = [UIImage imageNamed:@"2222.jpg"];
 
     [TSShareHelper shareWithType:1 andController:self andItems:@[img,img,img1,img,img1]];
 }
-- (IBAction)qqAction:(id)sender
-{
+
+- (IBAction)qqAction:(id)sender{
     UIImage *img = [UIImage imageNamed:@"99687078.jpg"];
     [TSShareHelper shareWithType:2 andController:self andItems:@[img,img,img]];
 }
-- (IBAction)sinaAction:(id)sender
-{
+
+- (IBAction)sinaAction:(id)sender{
     UIImage *img = [UIImage imageNamed:@"99687078.jpg"];
     [TSShareHelper shareWithType:3 andController:self andItems:@[img,img,img]];
 }
-- (IBAction)otherAction:(id)sender
-{
+
+- (IBAction)otherAction:(id)sender{
     UIImage *img = [UIImage imageNamed:@"99687078.jpg"];
     [TSShareHelper shareWithType:0 andController:self andItems:@[img,img,img]];
 }

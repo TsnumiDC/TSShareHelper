@@ -18,8 +18,7 @@
 static TSShareHelper * shareHelper;
 
 #pragma mark - 单例
-+ (instancetype)shareHelper
-{
++ (instancetype)shareHelper{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareHelper = [[TSShareHelper alloc]init];
@@ -28,15 +27,12 @@ static TSShareHelper * shareHelper;
 }
 
 #pragma mark - Public
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items
-{
++ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
     return [[TSShareHelper shareHelper]shareWithType:type andController:controller andItems:items];
 }
 
-- (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items
-{
-    //分享对象
-    
+- (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
+
     //判断分享类型
     if(type==0)
     {
@@ -77,16 +73,13 @@ static TSShareHelper * shareHelper;
     };
     
     
-    @try
-    {
+    @try{
         [controller presentViewController:composeVC animated:YES completion:nil];
         return YES;
         
-    } @catch (NSException *exception)
-    {
+    } @catch (NSException *exception){
         NSLog(@"没有安装");
         return NO;
-        
     } @finally {
         
     }
@@ -94,16 +87,12 @@ static TSShareHelper * shareHelper;
     return YES;
 }
 
-
 #pragma mark - Private
-- (NSString *)serviceTypeWithType:(TSShareHelperShareType)type
-{
+- (NSString *)serviceTypeWithType:(TSShareHelperShareType)type{
     //这个方法不再进行校验,传入就不等于0.这里做一个转换
     NSString * serviceType;
-    if ( type!= 0)
-    {
-        switch (type)
-        {
+    if ( type!= 0){
+        switch (type){
             case TSShareHelperShareTypeWeChat:
                 serviceType = @"com.tencent.xin.sharetimeline";
                 break;
@@ -113,15 +102,12 @@ static TSShareHelper * shareHelper;
             case TSShareHelperShareTypeSina:
                 serviceType = @"com.apple.share.SinaWeibo.post";
                 break;
-                
             default:
                 break;
         }
     }
     return serviceType;
 }
-
-
 
 /*
  <NSExtension: 0x1741735c0> {id = com.apple.share.Flickr.post}",
@@ -142,9 +128,5 @@ static TSShareHelper * shareHelper;
  "<NSExtension: 0x174173d40> {id = com.tencent.mqq.ShareExtension}", //QQ
  "<NSExtension: 0x1741738c0> {id = com.apple.share.SinaWeibo.post}", //微博
  */
-
-
-
-
 
 @end

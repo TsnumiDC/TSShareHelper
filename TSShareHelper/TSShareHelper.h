@@ -31,9 +31,11 @@ typedef NS_ENUM(NSInteger, TSShareHelperShareType)
 
  @param type 分享类型
  @param controller 展示的控制器
+ @param items 所有的分享对象 可以包括的类型是<UIimage NSURL>两种类型
  @return 返回分享结果 如果是No表示没有安装,请自行处理.
  */
 + (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items;
+
 - (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items;
 
 
