@@ -25,14 +25,12 @@
 
 >效果图
 
-![图1](1.png)
-
-![图2](2.png)
-
-![图3](3.jpg)
-
-![图4](4.png)
-
+<center>
+    <img src="1.png" width='150' class="third" >
+    <img src="2.png" width='150'  class="third">
+    <img src="3.jpg" width='150'  class="third">
+    <img src="4.png" width='150'  class="third">
+</center>
 
 >具体实现
 
