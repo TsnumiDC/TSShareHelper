@@ -3,7 +3,7 @@
 //  ShareMorePicToWX
 //
 //  Created by Dylan Chen on 2017/5/26.
-//  Copyright © 2017年 ZFJ. All rights reserved.
+//  Copyright © 2017年 Dylan. All rights reserved.
 //
 
 #import "TSShareHelper.h"
@@ -27,6 +27,15 @@ static TSShareHelper * shareHelper;
 }
 
 #pragma mark - Public
++ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFilePath:(NSString *)path{
+    return [TSShareHelper shareWithType:type andController:controller andFileURL:[NSURL fileURLWithPath:path]];
+}
+
++ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFileURL:(NSURL *)url{
+   return [TSShareHelper shareWithType:type andController:controller andItems:@[url]];
+}
+
+
 + (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
     return [[TSShareHelper shareHelper]shareWithType:type andController:controller andItems:items];
 }
@@ -34,8 +43,7 @@ static TSShareHelper * shareHelper;
 - (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
 
     //判断分享类型
-    if(type==0)
-    {
+    if(type==0){
         UIActivityViewController * activityCtl = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
         [controller presentViewController:activityCtl animated:YES completion:nil];
         return YES;
@@ -45,17 +53,12 @@ static TSShareHelper * shareHelper;
     SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:serviceType];
     // 添加要分享的图片
     
-    for ( id obj in items)
-    {
-        if ([obj isKindOfClass:[UIImage class]])
-        {
+    for ( id obj in items){
+        if ([obj isKindOfClass:[UIImage class]]){
             [composeVC addImage:(UIImage *)obj];
-        }
-        else if ([obj isKindOfClass:[NSURL class]])
-        {
+        }else if ([obj isKindOfClass:[NSURL class]]){
             [composeVC addURL:(NSURL *)obj];
         }
-        
     }
 
     // 添加要分享的文字
@@ -72,11 +75,9 @@ static TSShareHelper * shareHelper;
         }
     };
     
-    
     @try{
         [controller presentViewController:composeVC animated:YES completion:nil];
         return YES;
-        
     } @catch (NSException *exception){
         NSLog(@"没有安装");
         return NO;

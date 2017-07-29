@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>多图通过面板分享</string>
+		<string>多图跳过面板 直接微信  [好友和朋友圈]分享</string>
+		<string>多图跳过面板 直接QQ  [好友和空间]分享</string>
+		<string>多图跳过面板 直接微博分享</string>
+	</array>
+	<array>
+		<string>单文件&lt;视频&gt;通过面板分享</string>
+		<string>单文件跳过面板 直接微信分享</string>
+		<string>单文件跳过面板 直接QQ分享</string>
+		<string>单文件跳过面板 直接微博分享</string>
+	</array>
+</array>
+</plist>

@@ -17,6 +17,8 @@
 		9D3245B71DF5453700BFC1A6 /* 99687078.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3245B51DF5453700BFC1A6 /* 99687078.jpg */; };
 		9D3245B91DF545EB00BFC1A6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3245B81DF545EB00BFC1A6 /* share.png */; };
 		FC1C7DA51ED81C8E00AF909A /* TSShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1C7DA41ED81C8E00AF909A /* TSShareHelper.m */; };
+		FCF812E81F2C20C800080E5B /* Dylan 2017-07-07 09.33.12.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCF812E71F2C20C800080E5B /* Dylan 2017-07-07 09.33.12.mp4 */; };
+		FCF812EA1F2C25CB00080E5B /* ShareList.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCF812E91F2C25CB00080E5B /* ShareList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		9D3245B81DF545EB00BFC1A6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		FC1C7DA31ED81C8E00AF909A /* TSShareHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSShareHelper.h; sourceTree = "<group>"; };
 		FC1C7DA41ED81C8E00AF909A /* TSShareHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSShareHelper.m; sourceTree = "<group>"; };
+		FCF812E71F2C20C800080E5B /* Dylan 2017-07-07 09.33.12.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dylan 2017-07-07 09.33.12.mp4"; sourceTree = "<group>"; };
+		FCF812E91F2C25CB00080E5B /* ShareList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShareList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		9D3245801DF5452500BFC1A6 /* ShareMorePicToWX */ = {
 			isa = PBXGroup;
 			children = (
+				FCF812E91F2C25CB00080E5B /* ShareList.plist */,
+				FCF812E71F2C20C800080E5B /* Dylan 2017-07-07 09.33.12.mp4 */,
 				9D3245B81DF545EB00BFC1A6 /* share.png */,
 				9D3245B41DF5453700BFC1A6 /* 2222.jpg */,
 				9D3245B51DF5453700BFC1A6 /* 99687078.jpg */,
@@ -245,9 +251,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF812EA1F2C25CB00080E5B /* ShareList.plist in Resources */,
 				9D3245B71DF5453700BFC1A6 /* 99687078.jpg in Resources */,
 				9D3245B91DF545EB00BFC1A6 /* share.png in Resources */,
 				9D3245911DF5452500BFC1A6 /* LaunchScreen.storyboard in Resources */,
+				FCF812E81F2C20C800080E5B /* Dylan 2017-07-07 09.33.12.mp4 in Resources */,
 				9D32458E1DF5452500BFC1A6 /* Assets.xcassets in Resources */,
 				9D32458C1DF5452500BFC1A6 /* Main.storyboard in Resources */,
 				9D3245B61DF5453700BFC1A6 /* 2222.jpg in Resources */,

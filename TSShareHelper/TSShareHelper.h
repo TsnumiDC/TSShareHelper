@@ -3,7 +3,7 @@
 //  ShareMorePicToWX
 //
 //  Created by Dylan Chen on 2017/5/26.
-//  Copyright © 2017年 ZFJ. All rights reserved.
+//  Copyright © 2017年 Dylan. All rights reserved.
 //  TS分享助手类
 //  用于实现系统分享
 
@@ -26,6 +26,11 @@ typedef NS_ENUM(NSInteger, TSShareHelperShareType)
  @return 返回单例的 TSShareHelper
  */
 + (instancetype)shareHelper;
+
+
++ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFilePath:(NSString *)path;
++ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFileURL:(NSURL *)url;
+
 /**
  分享方法
 
