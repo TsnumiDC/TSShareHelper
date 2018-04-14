@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "TSShareHelper"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "ios一个多图多文件分享框架"
 
   # s.description  = <<-DESC
