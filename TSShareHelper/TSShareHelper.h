@@ -29,8 +29,15 @@ typedef void (^TSShareHelperCompleteHandler)(TSShareHelper * shareHelper, BOOL s
 + (instancetype)shareHelper;
 
 
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFilePath:(NSString *)path andCompletion:(TSShareHelperCompleteHandler)completion;
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFileURL:(NSURL *)url andCompletion:(TSShareHelperCompleteHandler)completion;
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+          andFilePath:(NSString *)path
+        andCompletion:(TSShareHelperCompleteHandler)completion;
+
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+           andFileURL:(NSURL *)url
+        andCompletion:(TSShareHelperCompleteHandler)completion;
 
 /**
  分享方法
@@ -41,9 +48,15 @@ typedef void (^TSShareHelperCompleteHandler)(TSShareHelper * shareHelper, BOOL s
  @param completion 分享的回调 YES:成功 NO:失败
  @return 返回分享结果 如果是No表示没有安装,请自行处理.
  */
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items andCompletion:(TSShareHelperCompleteHandler)completion;
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+             andItems:(NSArray *)items
+        andCompletion:(TSShareHelperCompleteHandler)completion;
 
-- (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items andCompletion:(TSShareHelperCompleteHandler)completion;
+- (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+             andItems:(NSArray *)items
+        andCompletion:(TSShareHelperCompleteHandler)completion;
 
 
 @end

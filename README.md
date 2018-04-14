@@ -1,26 +1,31 @@
-## TSShareHelper  我觉得有必要在最顶部提醒一下各位,由于iOS11不支持原生iOS11,所以跳过选择页面不行了(目前先用原生分享界面,让用户手动选微信吧)
+## TSShareHelper  提醒一下各位,由于iOS11不支持,所以跳过选择页面不行了(目前判断了版本先用原生分享界面,让用户手动选微信吧)
 
 功能 :iOS系统分享功能实现不经过选择,直接进入或者选择.
 新增视频,文件的分享
+判断了版本,做了回调处理.
 
-- 微信
+- 微信(前三个ios11之前支持直接弹出页面)
 - qq
 - 新浪
-- 原生选择界面
+- 原生选择界面 (ios11自动选择该type,请注意代码)
 
 `注意` : 其中传入的items包含UIImage或者NSURL的数组
 
 ```Objective-C
 
-分享方法:
 /**
- 分享方法
+分享方法
 
- @param type 分享类型
- @param controller 展示的控制器
- @return 返回分享结果 如果是No表示没有安装,请自行处理.
- */
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items;
+@param type 分享类型
+@param controller 展示的控制器
+@param items 所有的分享对象 可以包括的类型是<UIimage NSURL>两种类型
+@param completion 分享的回调 YES:成功 NO:失败
+@return 返回分享结果 如果是No表示没有安装,请自行处理.
+*/
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+             andItems:(NSArray *)items
+        andCompletion:(TSShareHelperCompleteHandler)completion;
 
 ```
 
