@@ -66,20 +66,50 @@
             //多图分享
             UIImage *img = [UIImage imageNamed:@"99687078.jpg"];
             UIImage *img1 = [UIImage imageNamed:@"2222.jpg"];
-            [TSShareHelper shareWithType:indexPath.row andController:self andItems:@[img,img,img1,img,img1]];
+            [TSShareHelper shareWithType:indexPath.row
+                           andController:self
+                                andItems:@[img,img,img1,img,img1]
+                           andCompletion:^(TSShareHelper *shareHelper, BOOL success) {
+                
+                               if (success) {
+                                   NSLog(@"成功的回调");
+                               }else{
+                                   NSLog(@"失败的回调");
+                               }
+                           }];
         }
             break;
         case 1:{
             //单个文件分享
             NSString * path = [[NSBundle mainBundle]pathForResource:@"Dylan 2017-07-07 09.33.12" ofType:@"mp4"];
-            [TSShareHelper shareWithType:indexPath.row  andController:self andFilePath:path];
+            [TSShareHelper shareWithType:indexPath.row
+                           andController:self
+                             andFilePath:path
+                           andCompletion:^(TSShareHelper *shareHelper, BOOL success) {
+                
+                               if (success) {
+                                   NSLog(@"成功的回调");
+                               }else{
+                                   NSLog(@"失败的回调");
+                               }
+                           }];
         }
             break;
         case 2:{
             //多个文件分享
             NSString * path = [[NSBundle mainBundle]pathForResource:@"Dylan 2017-07-07 09.33.12" ofType:@"mp4"];
             NSURL * url = [NSURL URLWithString:path];
-            [TSShareHelper shareWithType:indexPath.row  andController:self andItems:@[url,url,url]];
+            [TSShareHelper shareWithType:indexPath.row
+                           andController:self
+                                andItems:@[url,url,url]
+                           andCompletion:^(TSShareHelper *shareHelper, BOOL success) {
+                
+                               if (success) {
+                                   NSLog(@"成功的回调");
+                               }else{
+                                   NSLog(@"失败的回调");
+                               }
+                           }];
         }
             break;
             

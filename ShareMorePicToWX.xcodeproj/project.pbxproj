@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -227,7 +227,7 @@
 				};
 			};
 			buildConfigurationList = 9D3245791DF5452500BFC1A6 /* Build configuration list for PBXProject "ShareMorePicToWX" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -436,7 +436,7 @@
 				DEVELOPMENT_TEAM = 26J52EZXXR;
 				INFOPLIST_FILE = ShareMorePicToWX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.5151study1.ShareMorePicToWX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.5jljkljlk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -448,7 +448,7 @@
 				DEVELOPMENT_TEAM = 26J52EZXXR;
 				INFOPLIST_FILE = ShareMorePicToWX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.5151study1.ShareMorePicToWX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.5jljkljlk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

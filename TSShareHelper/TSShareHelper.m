@@ -11,6 +11,7 @@
 
 @interface TSShareHelper()
 
+@property (strong, nonatomic)UIViewController * pushVC;
 
 @end
 @implementation TSShareHelper
@@ -27,31 +28,79 @@ static TSShareHelper * shareHelper;
 }
 
 #pragma mark - Public
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFilePath:(NSString *)path{
-    return [TSShareHelper shareWithType:type andController:controller andFileURL:[NSURL fileURLWithPath:path]];
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+          andFilePath:(NSString *)path
+        andCompletion:(TSShareHelperCompleteHandler)completion{
+    
+    return [TSShareHelper shareWithType:type
+                          andController:controller
+                             andFileURL:[NSURL fileURLWithPath:path]
+                          andCompletion:completion];
+    
 }
 
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andFileURL:(NSURL *)url{
-   return [TSShareHelper shareWithType:type andController:controller andItems:@[url]];
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+           andFileURL:(NSURL *)url
+        andCompletion:(TSShareHelperCompleteHandler)completion{
+    
+   return [TSShareHelper
+           shareWithType:type
+           andController:controller
+           andItems:@[url]
+           andCompletion:completion];
 }
 
 
-+ (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
-    return [[TSShareHelper shareHelper]shareWithType:type andController:controller andItems:items];
++ (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+             andItems:(NSArray *)items
+        andCompletion:(TSShareHelperCompleteHandler)completion{
+    
+    return [[TSShareHelper shareHelper]shareWithType:type andController:controller andItems:items andCompletion:completion];
 }
 
-- (BOOL)shareWithType:(TSShareHelperShareType)type andController:(UIViewController *)controller andItems:(NSArray *)items{
+- (BOOL)shareWithType:(TSShareHelperShareType)type
+        andController:(UIViewController *)controller
+             andItems:(NSArray *)items
+        andCompletion:(TSShareHelperCompleteHandler)completion {
 
+    __block BOOL  success = YES;
+    
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 11.0) {
+        
+        type = TSShareHelperShareTypeOthers;//11之后只有分享到面板,然后选
+        
+    } else {
+        // 针对 11.0 以下的iOS系统进行处理
+    }
+    
     //判断分享类型
-    if(type==0){
+    if(type == TSShareHelperShareTypeOthers){
+        
         UIActivityViewController * activityCtl = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
-        [controller presentViewController:activityCtl animated:YES completion:nil];
+        [controller presentViewController:activityCtl animated:YES completion:^{
+            
+            if (completion) {
+                completion(self,YES);
+            }
+            
+        }  ];
         return YES;
     }
     
     NSString * serviceType = [self serviceTypeWithType:type];
+//    if (![SLComposeViewController isAvailableForServiceType:serviceType]) {
+//
+//        NSLog(@"不可用");
+//        return NO;
+//    }
+
     SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:serviceType];
     // 添加要分享的图片
+    self.pushVC = composeVC;
     
     for ( id obj in items){
         if ([obj isKindOfClass:[UIImage class]]){
@@ -67,25 +116,31 @@ static TSShareHelper * shareHelper;
     // 弹出分享控制器
     composeVC.completionHandler = ^(SLComposeViewControllerResult result){
         if (result == SLComposeViewControllerResultDone) {
-            NSLog(@"点击了发送");
+           // NSLog(@"点击了发送");
+            
         }
-        else if (result == SLComposeViewControllerResultCancelled)
-        {
-            NSLog(@"点击了取消");
+        else if (result == SLComposeViewControllerResultCancelled) {
+           // NSLog(@"点击了取消");
+            success = NO;
         }
     };
     
     @try{
-        [controller presentViewController:composeVC animated:YES completion:nil];
-        return YES;
+        [controller.navigationController pushViewController:composeVC animated:YES];
+//        [controller presentViewController:composeVC animated:YES completion:nil];
     } @catch (NSException *exception){
-        NSLog(@"没有安装");
-        return NO;
+        
+       // NSLog(@"没有安装");
+        success = NO;
+        
     } @finally {
         
+        if (completion) {
+            completion(self,success);
+        }
     }
     
-    return YES;
+    return success;
 }
 
 #pragma mark - Private
@@ -95,13 +150,23 @@ static TSShareHelper * shareHelper;
     if ( type!= 0){
         switch (type){
             case TSShareHelperShareTypeWeChat:
+                
+                //com.tencent.xin.sharetimeline
                 serviceType = @"com.tencent.xin.sharetimeline";
                 break;
             case TSShareHelperShareTypeQQ:
                 serviceType = @"com.tencent.mqq.ShareExtension";
                 break;
             case TSShareHelperShareTypeSina:
-                serviceType = @"com.apple.share.SinaWeibo.post";
+                if(@available(iOS 11.0, *))
+                {
+                   serviceType = SLServiceTypeSinaWeibo;
+//                    NSLog(@"%@",SLServiceTypeSinaWeibo);
+                }else {
+                    //com.apple.share.SinaWeibo.post
+                    serviceType = @"com.apple.share.SinaWeibo.post";
+                }
+                
                 break;
             default:
                 break;
@@ -110,24 +175,6 @@ static TSShareHelper * shareHelper;
     return serviceType;
 }
 
-/*
- <NSExtension: 0x1741735c0> {id = com.apple.share.Flickr.post}",
- "<NSExtension: 0x174173740> {id = com.taobao.taobao4iphone.ShareExtension}",
- "<NSExtension: 0x174173a40> {id = com.apple.reminders.RemindersEditorExtension}",
- "<NSExtension: 0x174173bc0> {id = com.apple.share.Vimeo.post}",
- "<NSExtension: 0x174173ec0> {id = com.apple.share.Twitter.post}",
- "<NSExtension: 0x174174040> {id = com.apple.mobileslideshow.StreamShareService}",
- "<NSExtension: 0x1741741c0> {id = com.apple.Health.HealthShareExtension}",
- "<NSExtension: 0x1741744c0> {id = com.apple.mobilenotes.SharingExtension}",
- "<NSExtension: 0x174174640> {id = com.alipay.iphoneclient.ExtensionSchemeShare}",
- "<NSExtension: 0x174174880> {id = com.apple.share.Facebook.post}",
- "<NSExtension: 0x174174a00> {id = com.apple.share.TencentWeibo.post}
- */
 
-/*
- "<NSExtension: 0x174174340> {id = com.tencent.xin.sharetimeline}", //微信
- "<NSExtension: 0x174173d40> {id = com.tencent.mqq.ShareExtension}", //QQ
- "<NSExtension: 0x1741738c0> {id = com.apple.share.SinaWeibo.post}", //微博
- */
 
 @end
